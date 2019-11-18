@@ -1,0 +1,6 @@
+<resources>
+    <!-- The height of the quick settings footer that holds the user switcher, settings icon,
+         etc. -->
+    <dimen name="qs_footer_height">48dp</dimen>
+</resources>
+
