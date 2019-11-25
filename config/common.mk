@@ -28,6 +28,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.com.google.clientidbase=$(PRODUCT_GMS_CLIENTID_BASE)
 endif
 
+# Default ringtone
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.config.ringtone=The_big_adventure.ogg,The_big_adventure.ogg
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/aosip/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
@@ -135,7 +139,7 @@ PRODUCT_PACKAGES += \
     themed_bootanimation
 
 # GApps
-#include vendor/gapps/config.mk
+include vendor/gapps/config.mk
 
 # Pixel Style
 include vendor/pixelstyle/config.mk
