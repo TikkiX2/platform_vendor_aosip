@@ -62,6 +62,6 @@ PRODUCT_PACKAGES += \
     AccentColorFlatPinkOverlay \
     AccentColorCyanOverlay \
     AccentColorBlueGrayOverlay \
-    AccentColorMintOverlay
+    AccentColorMintOverlay  \
     BBarOff-common \
     BBarOff-systemUI 
