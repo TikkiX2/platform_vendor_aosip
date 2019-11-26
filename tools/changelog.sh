@@ -11,9 +11,17 @@ then
 	cp "${OUT}/system/etc/${Changelog}" $Changelog
 	LastDate=`sed '2!d' $Changelog` # get 2nd line of changelog file
 	LastDate="$(echo -e "${LastDate}" | tr -d '[:space:]')" # get rid of whitespaces
-	TimeNow=`date +%m-%d-%Y` # current time
-	export PassedDays=$(( LastDate - TimeNow )) # n/o days passed
-	mv $Changelog "${Changelog}.bak" # save current changelog for later
+	# extract month day and year from string:
+	Month=${LastDate:0:2}
+	Day=${LastDate:3:2}
+	Year=${LastDate:6:4}
+	LastDate=`date -d "${Year}${Month}${Day}" +%s`
+	TimeNow=`date +%s` # current time
+	DayDiff=$(( (TimeNow - LastDate) / 86400 )) # n/o days passed
+	if [[ $DayDiff < $PassedDays ]]; then # don't fetch more than max days
+		export PassedDays=$DayDiff
+		mv $Changelog "${Changelog}.bak" # save current changelog for later
+	fi
 	touch $Changelog
 else
 	touch $Changelog
