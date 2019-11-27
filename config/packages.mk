@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     OmniRecord \
     OmniStyle \
-    WallpapersBReel2019
+    PixelLiveWallpaperPrebuilt
 
 # Filesystems tools
 PRODUCT_PACKAGES += \
