@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
     OmniStyle \
     PixelLiveWallpaperPrebuilt
 
+# Cutout control overlay
+PRODUCT_PACKAGES += \
+    NoCutoutOverlay
+
 # Filesystems tools
 PRODUCT_PACKAGES += \
     fsck.exfat \
