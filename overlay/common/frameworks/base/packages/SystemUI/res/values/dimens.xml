@@ -38,10 +38,6 @@
     <!-- 36 - 2*8 -->
     <dimen name="qs_footer_icon_size">20dp</dimen>
 
-    <!-- End padding for left-aligned status bar clock -->
-    <!-- 7dp -->
-    <dimen name="status_bar_left_clock_end_padding">4dp</dimen>
-
     <!-- 8/12dp -->
     <dimen name="qs_tile_margin_top">8dp</dimen>
 
