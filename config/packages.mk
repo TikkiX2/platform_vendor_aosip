@@ -3,7 +3,7 @@ PRODUCT_PACKAGES += \
     PixelThemes \
     ThemePicker
 
-ifeq ($(AOSIP_BUILDTYPE), Official)
+ifeq ($(filter-out Official CI, $(AOSIP_BUILDTYPE)),)
     PRODUCT_PACKAGES += \
         Updater
 endif
