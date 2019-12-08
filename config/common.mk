@@ -7,6 +7,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     net.tethering.noprovisioning=true \
     persist.sys.disable_rescue=true \
     ro.atrace.core.services=com.google.android.gms,com.google.android.gms.ui,com.google.android.gms.persistent \
+    ro.build.selinux=1 \
     ro.carrier=unknown \
     ro.com.android.dataroaming=false \
     ro.com.android.dateformat=MM-dd-yyyy \
@@ -101,7 +102,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
 # Common overlay
-PRODUCT_PACKAGE_OVERLAYS += vendor/aosip/overlay/common
+DEVICE_PACKAGE_OVERLAYS += vendor/aosip/overlay/common
 
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
