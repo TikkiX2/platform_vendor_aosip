@@ -53,7 +53,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
-
-PRODUCT_PACKAGES += \
-    BBarOff-common \
-    BBarOff-systemUI 
