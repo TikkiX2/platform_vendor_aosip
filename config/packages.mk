@@ -1,6 +1,6 @@
 # Required packages
 PRODUCT_PACKAGES += \
-    OmniJaws \
+		MatLog \
     OmniRecord \
     OmniStyle \
     PixelLiveWallpaperPrebuilt \
