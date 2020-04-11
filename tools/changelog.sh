@@ -47,6 +47,12 @@ fi
 # Build a list of all repos
 PROJECTPATHS=$(grep "<project" "${MANIFEST}" | sed -n 's/.*path="\([^"]\+\)".*/\1/p')
 
+# Add repos in local manifest for DT changelog
+PROJECTPATHS+="\n"
+for lManifest in $TOP/.repo/local_manifests/*; do
+	PROJECTPATHS+=$(grep "<project" "${lManifest}" | sed -n 's/.*path="\([^"]\+\)".*/\1/p')
+done
+
 echo -e "${GREEN}Generating changelog...${NC}"
 
 # Save current dir
