@@ -8,6 +8,7 @@ NC="\033[0m"
 
 export Changelog=Changelog.txt
 export PassedDays=7 # change this to limit max changelog days
+export MANIFEST="${TOP}/.repo/manifests/snippets/aosip.xml"
 
 if [ -f "${OUT}/system/etc/${Changelog}" ] # if changelog already generated
 then
@@ -43,7 +44,19 @@ else
 	fi
 fi
 
+# Build a list of all repos
+PROJECTPATHS=$(grep "<project" "${MANIFEST}" | sed -n 's/.*path="\([^"]\+\)".*/\1/p')
+
+# Add repos in local manifest for DT changelog
+PROJECTPATHS+="\n"
+for lManifest in $TOP/.repo/local_manifests/*; do
+	PROJECTPATHS+=$(grep "<project" "${lManifest}" | sed -n 's/.*path="\([^"]\+\)".*/\1/p')
+done
+
 echo -e "${GREEN}Generating changelog...${NC}"
+
+# Save current dir
+pDIR=$(echo $PWD)
 
 for i in $(seq $PassedDays);
 do
@@ -58,7 +71,15 @@ k=$(expr $i - 1)
 	echo >> $Changelog;
 
 	# Cycle through every repo to find commits between 2 dates
-	repo forall -pc 'git log --oneline --after=$After_Date --until=$Until_Date' >> $Changelog
+	for PROJECTPATH in ${PROJECTPATHS}; do
+		cd "${TOP}/${PROJECTPATH}"
+		if ! [[ -z $(git log --after=$After_Date --until=$Until_Date) ]]; then # only echo if there is a change
+			echo "[${PROJECTPATH}]" >> $pDIR/$Changelog
+			git log --format="%s <%ar> [%h]%nby: %an (%ae)" --after=$After_Date --until=$Until_Date >> $pDIR/$Changelog
+			echo >> $pDIR/$Changelog
+		fi
+	done
+	cd $pDIR
 	echo >> $Changelog;
 done
 
