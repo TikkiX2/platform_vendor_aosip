@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-  <dimen name="ancient_headerimg_size">198.95dp</dimen>
-  <dimen name="ancient_qs_margintop">206.95dp</dimen>
-  <dimen name="ancient_minimal_height">266.95dp</dimen>
-  <dimen name="extra_qs_footer_height">48dp</dimen>
-
-</resources>
