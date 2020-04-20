@@ -21,6 +21,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.url.legal=http://www.google.com/intl/%s/mobile/android/basic/phone-legal.html \
     ro.url.legal.android_privacy=http://www.google.com/intl/%s/mobile/android/basic/privacy.html
 
+# SI
+PRODUCT_PACKAGES += \
+	SettingsIntelligence
+
 ifeq ($(DERP_BUILD_ZIP_TYPE), VANILLA)
 PRODUCT_PACKAGES += \
     libjni_latinimegoogle
