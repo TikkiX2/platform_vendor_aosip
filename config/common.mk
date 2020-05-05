@@ -143,7 +143,9 @@ PRODUCT_PACKAGES += \
     themed_bootanimation
 
 PRODUCT_PACKAGES += \
-    BrightnessSliderOverlay
+    BrightnessSliderOverlay\
+    BrightnessSliderSystemUIOverlay
+
 
 ifeq ($(DERP_BUILD_ZIP_TYPE), GAPPS)
 # GApps
